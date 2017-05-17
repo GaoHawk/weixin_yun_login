@@ -76,29 +76,29 @@
                 return;
             }
 
-            this.$http.get('http://localhost:8081/login',{
-                params: {
-                    user_id: userId,
-                    role:role,
-                    password:this.password,
-                }
-            }).then(response => {
-                console.log(response.data.data);
+            // this.$http.get('http://localhost:8081/login',{
+            //     params: {
+            //         user_id: userId,
+            //         role:role,
+            //         password:this.password,
+            //     }
+            // }).then(response => {
+            //     console.log(response.data.data);
         
-            }, response => {
+            // }, response => {
 
-                console.log(response)
-                if(response){
-                    Toast({
-                        message: `用户名或密码错误`,
-                        position: 'bottom',
-                        duration: 2500
-                    });
-                }
-                setTimeout(function(){
-                    Indicator.close();
-                },1500)
-            })
+            //     console.log(response)
+            //     if(response){
+            //         Toast({
+            //             message: `用户名或密码错误`,
+            //             position: 'bottom',
+            //             duration: 2500
+            //         });
+            //     }
+            //     setTimeout(function(){
+            //         Indicator.close();
+            //     },1500)
+            // })
     
         }
      },
