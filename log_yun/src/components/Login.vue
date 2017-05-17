@@ -33,6 +33,8 @@
         clearout(){
             this.username = '';
             this.password = '';
+            this.account_state = '';
+            this.pwd_state = '';
         },
         logIn(){
             
