@@ -169,38 +169,7 @@
                     console.log(this.loading);
                     var numH = this.loadCount ? this.loadCount : 1;
     
-                    this.$http.get('http://localhost:8081/homeworks_web', {
-    
-    
-                        headers: {
-    
-    
-                            "X-Session": this.session
-    
-                        },
-    
-    
-                        params: {
-    
-    
-    
-                            user_id: this.userId,
-    
-    
-    
-                            order: "DESC",
-    
-    
-    
-                            limit: 4,
-    
-    
-    
-                            starting_after: numH
-    
-    
-    
-                        }
+                    this.$http.get('../homework.json', {
     
     
     
@@ -208,15 +177,15 @@
     
     
     
-                        console.log(response.data.data);
+                        console.log(response.data.homework);
     
     
     
-                        for (let i = 0; i < response.data.data.length; i++) {
+                        for (let i = 0; i < response.data.homework.length; i++) {
     
     
     
-                            this.$store.commit('SET_HWK_DATA', response.data.data[i]);
+                            this.$store.commit('SET_HWK_DATA', response.data.homework[i]);
     
     
     
@@ -228,24 +197,22 @@
     
     
     
-                        let dataLen = response.data.data.length
+                        // let dataLen = response.data.data.length
     
     
-                        if (dataLen < 4) {
-    
-    
-    
-                            this.$store.commit('SET_HOMEWORK_END', true);
+                        // if (dataLen < 4) {
     
     
     
-                        }
+                        //     this.$store.commit('SET_HOMEWORK_END', true);
     
     
     
+                        // }
+    
+    
+                        this.$store.commit('SET_HOMEWORK_END', true);
                         this.$store.commit('SET_LOAD_COUNT', numH + 1);
-    
-    
                         this.loading =false;
     
     

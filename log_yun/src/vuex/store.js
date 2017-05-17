@@ -206,6 +206,7 @@ export default new Vuex.Store({
     SET_INDEX_STA(state,val){
        state.index_state = val;
        window.sessionStorage.selected = val;
+       console.log(state.index_state);
     },
     SET_HOMEWORK_DATA(state,obj){
        state.homework_data = obj;

@@ -15,6 +15,7 @@ import myDrag from './directive/dragEvent.vue'
 
 Vue.prototype.$http = axios;
 Vue.directive(dirFocus.name,dirFocus);
+Vue.directive(myDrag.name,myDrag);
 
 Vue.config.productionTip = false
 

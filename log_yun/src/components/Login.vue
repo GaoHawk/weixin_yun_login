@@ -1,5 +1,6 @@
 <template>
     <div class="login">
+        <h2 class="title">云课堂手机app</h2>
         <mt-field label="用户名" :state="account_state" placeholder="请输入用户名" v-model="username" v-focus></mt-field>
         <mt-field label="密码" :state="pwd_state" placeholder="请输入密码" type="password" v-model="password" v-focus></mt-field>
         <div class="center">
@@ -76,6 +77,33 @@
                 return;
             }
 
+            // 模拟本地登陆效果
+            if(userId == `236942` && this.password == `123456`){
+                let store = this.$store;
+                let router = this.$router;
+                setTimeout(function(){
+                    Indicator.close();
+                    store.commit('ROUT_PATH','/home/yearIndex');
+                    store.commit('SET_PREPATH','/');
+                    store.commit('SET_HOME',false);
+                    sessionStorage.showHome = false;
+                    window.sessionStorage.userId = userId;
+                    console.log(sessionStorage);
+                },1500)
+                console.log(this);
+ 
+            }else{
+
+                Toast({
+                    message: `用户名或密码错误`,
+                    position: 'bottom',
+                    duration: 2500
+                });
+                
+                setTimeout(function(){
+                    Indicator.close();
+                },1500)
+            }
             // this.$http.get('http://localhost:8081/login',{
             //     params: {
             //         user_id: userId,
@@ -111,5 +139,9 @@
 .center{
     margin-top:10px;
     text-align:center;
+}
+.login .title{
+    text-align:center;
+    margin-top:60px;
 }
 </style>

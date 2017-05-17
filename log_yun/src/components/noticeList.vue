@@ -108,24 +108,19 @@
                     this.loading = true;
                     var noticeNum = this.noticeCount?this.noticeCount:1;
                     
-                    this.$http.get('http://localhost:8081/notices',{
-                        headers:{"X-Session":this.session},
-                        params: {
-                        user_id: this.userId,
-                        order: "DESC",
-                        limit: 4,
-                        starting_after: noticeNum
-                        }
+                    this.$http.get('../notice.json',{
+       
                     }).then(response => {
-                        console.log(response.data.data);
-                        for (let i = 0; i < response.data.data.length; i++) {
-                            this.$store.commit('SET_NOTICE_DATA', response.data.data[i]);
+                        console.log(response.data.notiec);
+                        for (let i = 0; i < response.data.notiec.length; i++) {
+                            this.$store.commit('SET_NOTICE_DATA', response.data.notiec[i]);
                         }
-                        let noticeLen = response.data.data.length
-                        console.log(noticeLen)
-                        if(noticeLen <4){
-                            this.$store.commit('SET_NOTICE_END',true);
-                        }
+                        // let noticeLen = response.data.data.length
+                        // console.log(noticeLen)
+                        // if(noticeLen <4){
+                        //     this.$store.commit('SET_NOTICE_END',true);
+                        // }
+                        this.$store.commit('SET_NOTICE_END',true);
                         this.$store.commit('SET_NOTICE_COUNT',noticeNum+1);
                         this.loading = false;
                     }, response => {
