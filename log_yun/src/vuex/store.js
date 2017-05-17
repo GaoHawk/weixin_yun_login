@@ -2,9 +2,9 @@
 
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { router } from '@/router/index'
 
 const debug = process.env.NODE_ENV !== 'production'
+
 
 Vue.use(Vuex)
 Vue.config.debug = debug
@@ -175,14 +175,15 @@ export default new Vuex.Store({
       state.title = msg
     },
     ROUT_PATH(state,path){
-       router.push({path:path  })
+      console.log(path);
+      //  router.push({path:path  })
        state.path = path;
     },
     SET_PREPATH(state,path){
       state.prevPath=path
     },
     GO_BACK(state){
-       router.go(-1);
+      //  router.go(-1);
        const change = state.path;
        state.path = state.prevPath;
        state.prevPath = change;

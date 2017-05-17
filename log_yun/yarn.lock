@@ -1447,6 +1447,10 @@ draftlog@^1.0.10:
   version "1.0.12"
   resolved "http://registry.npm.taobao.org/draftlog/download/draftlog-1.0.12.tgz#7db6a3c5b62106bb32dd4a35d67bcccb6c7d9da0"
 
+dropzone@^4.3.0:
+  version "4.3.0"
+  resolved "http://registry.npm.taobao.org/dropzone/download/dropzone-4.3.0.tgz#48b0b8f2ad092872e4b535b672a7c3f1a1d67c91"
+
 duplexer@^0.1.1:
   version "0.1.1"
   resolved "http://registry.npm.taobao.org/duplexer/download/duplexer-0.1.1.tgz#ace6ff808c1ce66b57d1ebf97977acb02334cfc1"
@@ -1946,6 +1950,10 @@ hosted-git-info@^2.1.4:
   version "2.4.2"
   resolved "http://registry.npm.taobao.org/hosted-git-info/download/hosted-git-info-2.4.2.tgz#0076b9f46a270506ddbaaea56496897460612a67"
 
+howler@^2.0.2:
+  version "2.0.3"
+  resolved "http://registry.npm.taobao.org/howler/download/howler-2.0.3.tgz#a76ab5a37ae5cc1e4a5a0f3ce279ca2c72b5efc7"
+
 html-comment-regex@^1.1.0:
   version "1.1.1"
   resolved "http://registry.npm.taobao.org/html-comment-regex/download/html-comment-regex-1.1.1.tgz#668b93776eaae55ebde8f3ad464b307a4963625e"
@@ -2370,6 +2378,10 @@ loader-utils@^1.0.2, loader-utils@^1.1.0:
 lodash.camelcase@^4.3.0:
   version "4.3.0"
   resolved "http://registry.npm.taobao.org/lodash.camelcase/download/lodash.camelcase-4.3.0.tgz#b28aa6288a2b9fc651035c7711f65ab6190331a6"
+
+lodash.clamp@^4.0.3:
+  version "4.0.3"
+  resolved "http://registry.npm.taobao.org/lodash.clamp/download/lodash.clamp-4.0.3.tgz#5c24bedeeeef0753560dc2b4cb4671f90a6ddfaa"
 
 lodash.clonedeep@^4.5.0:
   version "4.5.0"
@@ -3961,6 +3973,13 @@ vue-hot-reload-api@^2.0.11:
   version "2.1.0"
   resolved "http://registry.npm.taobao.org/vue-hot-reload-api/download/vue-hot-reload-api-2.1.0.tgz#9ca58a6e0df9078554ce1708688b6578754d86de"
 
+vue-howler@^0.1.4:
+  version "0.1.4"
+  resolved "http://registry.npm.taobao.org/vue-howler/download/vue-howler-0.1.4.tgz#af049b4201a2dceac6d896ebd69d5589c45c59f0"
+  dependencies:
+    howler "^2.0.2"
+    lodash.clamp "^4.0.3"
+
 vue-lazyload@^1.0.1:
   version "1.0.3"
   resolved "http://registry.npm.taobao.org/vue-lazyload/download/vue-lazyload-1.0.3.tgz#6bd881a5bf3c681e74e86190094cad104bc403fa"
@@ -4004,7 +4023,14 @@ vue-template-es2015-compiler@^1.2.2:
   version "1.5.2"
   resolved "http://registry.npm.taobao.org/vue-template-es2015-compiler/download/vue-template-es2015-compiler-1.5.2.tgz#a0a6c50c941d2a4abda963f2f42c337ac450ee95"
 
-vue@^2.2.6:
+vue2-dropzone@2.0.0:
+  version "2.0.0"
+  resolved "http://registry.npm.taobao.org/vue2-dropzone/download/vue2-dropzone-2.0.0.tgz#398e57012a2f3bd0979cdaf1496af7c9e2521c3b"
+  dependencies:
+    dropzone "^4.3.0"
+    vue "^2.0.0"
+
+vue@^2.0.0, vue@^2.2.6:
   version "2.3.3"
   resolved "http://registry.npm.taobao.org/vue/download/vue-2.3.3.tgz#d1eaa8fde5240735a4563e74f2c7fead9cbb064c"
 

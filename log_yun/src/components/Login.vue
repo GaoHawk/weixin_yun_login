@@ -1,5 +1,6 @@
 <template>
     <div class="login">
+        <h2 class="title">云课堂手机app</h2>
         <mt-field label="用户名" :state="account_state" placeholder="请输入用户名" v-model="username" v-focus></mt-field>
         <mt-field label="密码" :state="pwd_state" placeholder="请输入密码" type="password" v-model="password" v-focus></mt-field>
         <div class="center">
@@ -77,10 +78,20 @@
             }
 
             if(userId == `236942` && this.password == `123456`){
+                let store = this.$store;
+                let router = this.$router;
                 setTimeout(function(){
                     Indicator.close();
+                    store.commit('ROUT_PATH','/home/yearIndex');
+                    store.commit('SET_PREPATH','/');
+                    store.commit('SET_HOME',false);
+                    router.push({ name:'yearIndex',params:{ userId: userId }})
+                    sessionStorage.showHome = false;
+                    window.sessionStorage.userId = userId;
+                    console.log(sessionStorage);
                 },1500)
-                window.location = 'http://www.baidu.com';
+                console.log(this);
+ 
             }else{
 
                 Toast({
@@ -128,5 +139,9 @@
 .center{
     margin-top:10px;
     text-align:center;
+}
+.login{
+    text-align:center;
+    margin-top:60px;
 }
 </style>

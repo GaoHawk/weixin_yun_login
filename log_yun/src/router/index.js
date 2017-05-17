@@ -1,21 +1,24 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import VueRouter from 'vue-router'
+import { sync } from 'vuex-router-sync'
 import Hello from '@/components/Hello'
 import Login from '@/components/Login'
-import Foo from './component/foo.vue'
-import Bar from './component/bar.vue'
-import Notice from './component/notice.vue'
-import homework from './component/homework.vue'
-import c_notice from './component/createNotice.vue'
-import firstTab from './component/tabbar.vue'
-import pictureView from './component/picture.vue'
-import pageNav from './component/pageNav.vue'
-import yearIndex from './component/yearIndex.vue'
-import comments from './component/comments.vue'
+import Foo from '@/components/foo'
+import Bar from '@/components/bar'
+import Notice from '@/components/notice'
+import homework from '@/components/homework'
+import c_notice from '@/components/createNotice'
+import firstTab from '@/components/tabbar'
+import pictureView from '@/components/picture'
+import pageNav from '@/components/pageNav'
+import yearIndex from '@/components/yearIndex'
+import comments from '@/components/comments'
 
 Vue.use(Router)
+Vue.use(VueRouter)
 
-export default new Router({
+export default new VueRouter({
   routes: [
     {
       path:'/',
