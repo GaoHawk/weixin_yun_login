@@ -76,29 +76,46 @@
                 return;
             }
 
-            this.$http.get('http://localhost:8081/login',{
-                params: {
-                    user_id: userId,
-                    role:role,
-                    password:this.password,
-                }
-            }).then(response => {
-                console.log(response.data.data);
-        
-            }, response => {
-
-                console.log(response)
-                if(response){
-                    Toast({
-                        message: `用户名或密码错误`,
-                        position: 'bottom',
-                        duration: 2500
-                    });
-                }
+            if(userId == `236942` && this.password == `123456`){
                 setTimeout(function(){
                     Indicator.close();
                 },1500)
-            })
+                window.location = 'http://www.baidu.com';
+            }else{
+
+                Toast({
+                    message: `用户名或密码错误`,
+                    position: 'bottom',
+                    duration: 2500
+                });
+                
+                setTimeout(function(){
+                    Indicator.close();
+                },1500)
+            }
+            // this.$http.get('http://localhost:8081/login',{
+            //     params: {
+            //         user_id: userId,
+            //         role:role,
+            //         password:this.password,
+            //     }
+            // }).then(response => {
+            //     console.log(response.data.data);
+        
+            // }, response => {
+
+            //     console.log(response)
+            //     if(response){
+            //         Toast({
+            //             message: `用户名或密码错误`,
+            //             position: 'bottom',
+            //             duration: 2500
+            //         });
+            //     }
+            //     setTimeout(function(){
+            //         Indicator.close();
+            //     },1500)
+            // })
     
         }
      },
