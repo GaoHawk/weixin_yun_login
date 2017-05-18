@@ -203,7 +203,7 @@ export default {
       }
       this.$http({
           method: 'post',
-          url:'http://localhost:8081/homeworks',
+          url:'http://120.24.72.106:8081/appdesk/homeworks',
           data:{
               classroom_ids:classIds,
               course:this.selected,

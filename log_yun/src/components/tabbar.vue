@@ -71,7 +71,26 @@ import AllList from './AllList.vue'
 export default {
   name: 'page-tabbar',
   created(){
+        this.$http.get('http://120.24.72.106:8081/appdesk/users/' + this.userId +'/classrooms?embed_members=1',{
+            headers:{"X-Session":this.session},
+            params: {
+              user_id: this.userId,
+            }
+        }).then(response => {
+            console.log(response.data.data);
+            var classData = response.data.data;
+            for(let i=0;i<classData.length;i++){
+              let classObj = {
+                  classID:classData[i].id,
+                  className:classData[i].grade + classData[i].name
+              }
+              this.$store.commit('SET_HAND_CLASS',classObj);
+            }
+      
+        }, response => {
 
+            console.log(response)
+        })
 
   },
   computed: {

@@ -51,6 +51,11 @@ export default {
         this.$store.commit('SET_U_SESSION',session);
     }
 
+    // 获得当前用户id
+    if(sessionStorage.userId){
+        var uId = sessionStorage.userId;
+        this.$store.commit('SET_COMMENTS_UID',uId);
+    }
     console.log(this.$store)
      
   },
@@ -111,41 +116,10 @@ export default {
           }
       }, false);
 
- 
-      this.$http.get('http://localhost:8081/login',{
-          params: {
-             user_id: this.userId,
-             role:1,
-             password:`123456`,
-          }
-      }).then(response => {
-          console.log(response.data);
-          this.$store.commit('SET_U_SESSION',response.data.data.session);
+
     
-          this.$http.get('http://localhost:8081/users/' + this.userId +'/classrooms?embed_members=1',{
-              headers:{"X-Session":this.session},
-              params: {
-                user_id: this.userId,
-              }
-          }).then(response => {
-              console.log(response.data.data);
-              var classData = response.data.data;
-              for(let i=0;i<classData.length;i++){
-                let classObj = {
-                    classID:classData[i].id,
-                    className:classData[i].grade + classData[i].name
-                }
-                this.$store.commit('SET_HAND_CLASS',classObj);
-              }
-        
-          }, response => {
 
-              console.log(response)
-          })
-      }, response => {
-
-          console.log(response)
-      })
+ 
   }
 }
 </script>

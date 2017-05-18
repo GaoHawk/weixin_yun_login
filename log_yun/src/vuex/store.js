@@ -256,6 +256,7 @@ export default new Vuex.Store({
     },
     SET_COMMENTS_UID(state,uid){
       state.userId = uid;
+      sessionStorage.userId = uid;
     },
     SET_COMMENTS_NAME(state,name){
       state.comments_name = name;
@@ -285,6 +286,7 @@ export default new Vuex.Store({
     // 清楚作业数据
     CLEAR_OUT_HOMEWORK(state){
       state.homeworks=[];
+      console.log(state.homeworks)
     },
     // 清楚通知数据
     CLEAR_OUT_NOTICE(state){

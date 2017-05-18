@@ -2,7 +2,7 @@
     <div class="template">
      <child ref="ref1"></child>
     
-     <dropzon   ref="myUnique" id="vueDropzone" url="/upload/file"  acceptedFileTypes='image/*'  
+     <dropzon   ref="myUnique" id="vueDropzone" url="http://120.24.72.106:8081/appdesk/upload/file"  acceptedFileTypes='image/*'  
           v-on:vdropzone-success="showSuccess"
           :thumbnailHeight="100"
           :thumbnailWidth="50"

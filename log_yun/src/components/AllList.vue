@@ -154,7 +154,7 @@
             this.loading =true;
             var noticeNum = this.noticeCount?this.noticeCount:1;
             
-            this.$http.get('http://localhost:8081/notices',{
+            this.$http.get('http://120.24.72.106:8081/appdesk/notices',{
                 headers:{"X-Session":this.session},
                 params: {
                 user_id: this.userId,
@@ -187,7 +187,7 @@
       }else{
           this.loading = true;
           var numH  =  this.loadCount?this.loadCount:1;
-          this.$http.get('http://localhost:8081/homeworks_web',{
+          this.$http.get('http://120.24.72.106:8081/appdesk/homeworks_web',{
             headers:{"X-Session":this.session},
             params: {
               user_id: this.userId,

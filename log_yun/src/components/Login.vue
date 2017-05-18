@@ -78,9 +78,44 @@
             }
 
             // 模拟本地登陆效果
-            if(userId == `236942` && this.password == `123456`){
+            // if(userId == `236942` && this.password == `123456`){
+            //     let store = this.$store;
+            //     let router = this.$router;
+            //     setTimeout(function(){
+            //         Indicator.close();
+            //         store.commit('ROUT_PATH','/home/yearIndex');
+            //         store.commit('SET_PREPATH','/');
+            //         store.commit('SET_HOME',false);
+            //         sessionStorage.showHome = false;
+            //         window.sessionStorage.userId = userId;
+            //         console.log(sessionStorage);
+            //     },1500)
+            //     console.log(this);
+ 
+            // }else{
+
+            //     Toast({
+            //         message: `用户名或密码错误`,
+            //         position: 'bottom',
+            //         duration: 2500
+            //     });
+                
+            //     setTimeout(function(){
+            //         Indicator.close();
+            //     },1500)
+            // }
+            this.$http.get('http://120.24.72.106:8081/appdesk/login',{
+                params: {
+                    user_id: userId,
+                    role:role,
+                    password:this.password,
+                }
+            }).then(response => {
+                console.log(response.data.data);
                 let store = this.$store;
                 let router = this.$router;
+                this.$store.commit('SET_U_SESSION',response.data.data.session);
+                this.$store.commit('SET_COMMENTS_UID',userId);
                 setTimeout(function(){
                     Indicator.close();
                     store.commit('ROUT_PATH','/home/yearIndex');
@@ -90,43 +125,20 @@
                     window.sessionStorage.userId = userId;
                     console.log(sessionStorage);
                 },1500)
-                console.log(this);
- 
-            }else{
+            }, response => {
 
-                Toast({
-                    message: `用户名或密码错误`,
-                    position: 'bottom',
-                    duration: 2500
-                });
-                
+                console.log(response)
+                if(response){
+                    Toast({
+                        message: `用户名或密码错误`,
+                        position: 'bottom',
+                        duration: 2500
+                    });
+                }
                 setTimeout(function(){
                     Indicator.close();
                 },1500)
-            }
-            // this.$http.get('http://localhost:8081/login',{
-            //     params: {
-            //         user_id: userId,
-            //         role:role,
-            //         password:this.password,
-            //     }
-            // }).then(response => {
-            //     console.log(response.data.data);
-        
-            // }, response => {
-
-            //     console.log(response)
-            //     if(response){
-            //         Toast({
-            //             message: `用户名或密码错误`,
-            //             position: 'bottom',
-            //             duration: 2500
-            //         });
-            //     }
-            //     setTimeout(function(){
-            //         Indicator.close();
-            //     },1500)
-            // })
+            })
     
         }
      },

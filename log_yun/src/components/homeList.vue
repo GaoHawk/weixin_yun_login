@@ -169,7 +169,38 @@
                     console.log(this.loading);
                     var numH = this.loadCount ? this.loadCount : 1;
     
-                    this.$http.get('../homework.json', {
+                    this.$http.get('http://120.24.72.106:8081/appdesk/homeworks_web', {
+    
+    
+                        headers: {
+    
+    
+                            "X-Session": this.session
+    
+                        },
+    
+    
+                        params: {
+    
+    
+    
+                            user_id: this.userId,
+    
+    
+    
+                            order: "DESC",
+    
+    
+    
+                            limit: 4,
+    
+    
+    
+                            starting_after: numH
+    
+    
+    
+                        }
     
     
     
@@ -177,15 +208,15 @@
     
     
     
-                        console.log(response.data.homework);
+                        console.log(response.data.data);
     
     
     
-                        for (let i = 0; i < response.data.homework.length; i++) {
+                        for (let i = 0; i < response.data.data.length; i++) {
     
     
     
-                            this.$store.commit('SET_HWK_DATA', response.data.homework[i]);
+                            this.$store.commit('SET_HWK_DATA', response.data.data[i]);
     
     
     
@@ -197,22 +228,24 @@
     
     
     
-                        // let dataLen = response.data.data.length
+                        let dataLen = response.data.data.length
     
     
-                        // if (dataLen < 4) {
-    
-    
-    
-                        //     this.$store.commit('SET_HOMEWORK_END', true);
+                        if (dataLen < 4) {
     
     
     
-                        // }
+                            this.$store.commit('SET_HOMEWORK_END', true);
     
     
-                        this.$store.commit('SET_HOMEWORK_END', true);
+    
+                        }
+    
+    
+    
                         this.$store.commit('SET_LOAD_COUNT', numH + 1);
+    
+    
                         this.loading =false;
     
     
